@@ -1,20 +1,18 @@
 module.exports = ({ env }) => ({
-  defaultConnection: 'default',
+  defaultConnection: "default",
   connections: {
     default: {
-      connector: 'mongoose',
+      connector: "bookshelf",
       settings: {
-        host: env('DATABASE_HOST', '127.0.0.1'),
-        srv: env.bool('DATABASE_SRV', false),
-        port: env.int('DATABASE_PORT', 27017),
-        database: env('DATABASE_NAME', 'hendricks-projects-manager'),
-        username: env('DATABASE_USERNAME', 'admin'),
-        password: env('DATABASE_PASSWORD', 'admin'),
+        client: "postgres",
+        host: env("DATABASE_HOST", "192.168.8.44"),
+        port: env.int("DATABASE_PORT", 5432),
+        database: env("DATABASE_NAME", "project-management"),
+        username: env("DATABASE_USERNAME", "postgres"),
+        password: env("DATABASE_PASSWORD", "postgres"),
+        ssl: env.bool("DATABASE_SSL", false),
       },
-      options: {
-        authenticationDatabase: env('AUTHENTICATION_DATABASE', null),
-        ssl: env.bool('DATABASE_SSL', false),
-      },
+      options: {},
     },
   },
 });
